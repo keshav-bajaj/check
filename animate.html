@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            .circle{
+                width:50px;
+                height:50px;
+                position: absolute;
+                opacity: 0.7;
+                transition: all 0.8s;
+                border-radius: 50%;
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <button id="btn">Click me</button>
+        <div id="score"></div>
+        <script>
+            var i;
+            dotsquant = 20;
+            for (i = 0; i < dotsquant; i++) {
+                var dot = document.createElement("div");
+                dot.classList.add("circle");
+                generateproperties(dot);
+                document.body.appendChild(dot);
+            }
+            function generateproperties(x) {
+             var red = Math.floor((Math.random() * 255) + 1); 
+             var green = Math.floor((Math.random() * 255) + 1);
+             var blue = Math.floor((Math.random() * 255) + 1);
+             var color =  "rgb" + "(" + red + "," + green + "," + blue + ")";
+             var mleft = Math.floor((Math.random() * (screen.availWidth-100)));
+             var mtop = Math.floor((Math.random() * (screen.availHeight-190)));
+             x.style.backgroundColor = color;
+             x.style.marginLeft = mleft;
+             x.style.marginTop = mtop;
+            }
+
+            document.getElementById("btn").onclick = 
+            function generatenewproperties() {
+                for (i = 0; i < dotsquant; i++){
+                var ele = document.getElementsByClassName("circle")[i];
+                generateproperties(ele);
+                }
+            };
+
+            setInterval(function name() {
+                document.getElementById("btn").click();
+            } , 798);
+        </script>
+    </body>
+</html>
